@@ -50,15 +50,20 @@ var phrases =
 
 //solution 1
 var arr=[];
-
+// Get each sentence length and put it in an array
 for(var i=0; i<phrases.length; i++){
     var length= phrases[i].length;
     arr.push(length);
 }
 
+//sort the new array to get the highest value
+
 arr=arr.sort(function(a,b){return a-b;});
 var x;
 x=arr[arr.length-1];
+
+// search for the sentence which has a length equal to x
+
 var result= phrases.filter(compare);
 function compare(elt){
     return elt.length===x;
@@ -68,20 +73,25 @@ document.write('la phrase la plus longue est: "' +result +'"');
 
 // solution 2
 
-var a=phrases[0].length;
-var resultat;
+var a=phrases[0].length; // the start
+var result;
+
+// compare sentences length using for loop
+
 for(var i=1; i<phrases.length-1; i++){
    if(phrases[i].length>a){
-    resultat=phrases[i];
+    result=phrases[i];
     a=phrases[i].length;
    }
 }
 
-console.log(resultat);
+console.log(result);
 
 // solution 3
 
-var reponse;
+// compare sentences length using while loop
+
+var response;
 var x=1;
 var pos=phrases[0];
 var pos2;
@@ -95,10 +105,10 @@ function comparaison(a,b){
 
 do{
     pos2=phrases[x];
-    reponse=comparaison(pos,pos2);
-    pos=reponse;
+    response=comparaison(pos,pos2);
+    pos=response;
     x++;
 
 }while(x<phrases.length-1)
 
-console.log(reponse);
+console.log(response);
